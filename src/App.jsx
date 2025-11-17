@@ -4,10 +4,13 @@ import './styles/App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
 import Preloader from './components/Preloader';
+import WebsiteProtection from './components/WebsiteProtection';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -34,6 +37,7 @@ function App() {
         ) : (
           <Router key="app">
             <div className="app">
+              <WebsiteProtection />
               <ParticleBackground />
               <Header />
               <Routes>
@@ -46,6 +50,18 @@ function App() {
               </Routes>
               <Footer />
             </div>
+            <ToastContainer
+              position="top-center"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
           </Router>
         )}
       </AnimatePresence>
