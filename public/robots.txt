@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://shehriyardev.online/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
