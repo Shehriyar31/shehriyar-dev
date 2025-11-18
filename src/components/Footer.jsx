@@ -1,5 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.jpg';
 import pkFlag from '../assets/pk.jpg';
 
@@ -61,11 +62,11 @@ function Footer() {
             >
               <h5 className="footer-title"><i className="bi bi-building me-2"></i>Company</h5>
               <div>
-                <a href="#home" className="footer-link">Home</a>
-                <a href="#about" className="footer-link">About</a>
-                <a href="#services" className="footer-link">Services</a>
-                <a href="#portfolio" className="footer-link">Portfolio</a>
-                <a href="#contact" className="footer-link">Contact</a>
+                <Link to="/" className="footer-link">Home</Link>
+                <Link to="/about" className="footer-link">About</Link>
+                <Link to="/services" className="footer-link">Services</Link>
+                <Link to="/portfolio" className="footer-link">Portfolio</Link>
+                <Link to="/contact" className="footer-link">Contact</Link>
               </div>
             </motion.div>
           </Col>
