@@ -9,6 +9,9 @@ import logo from '../assets/logo.jpg';
 function Contact() {
   const form = useRef();
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedService, setSelectedService] = useState('');
+  const [whatsappNumber, setWhatsappNumber] = useState('');
+  const [whatsappError, setWhatsappError] = useState('');
 
   const services = [
     'MERN Stack Development',
@@ -17,11 +20,43 @@ function Contact() {
     'WordPress Development',
     'MS Office Management',
     'Facebook Ads Management',
-    'Responsive Web Design'
+    'Responsive Web Design',
+    'Courses & Training'
   ];
+
+  const courses = [
+    'Frontend Development',
+    'Full Stack Development',
+    'Graphics Designing',
+    'MS Office Management',
+    'WordPress Development',
+    'Facebook Ads Management'
+  ];
+
+  const validateWhatsApp = (number) => {
+    const pakistanRegex = /^03\d{9}$/;
+    return pakistanRegex.test(number);
+  };
+
+  const handleWhatsAppChange = (e) => {
+    const value = e.target.value;
+    setWhatsappNumber(value);
+    
+    if (value && !validateWhatsApp(value)) {
+      setWhatsappError('Please enter valid Pakistani number (03XXXXXXXXX)');
+    } else {
+      setWhatsappError('');
+    }
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
+    
+    if (!validateWhatsApp(whatsappNumber)) {
+      setWhatsappError('Please enter valid Pakistani number (03XXXXXXXXX)');
+      return;
+    }
+    
     setIsLoading(true);
 
     // EmailJS configuration
@@ -220,13 +255,22 @@ function Contact() {
                           <Form.Control
                             type="tel"
                             name="user_whatsapp"
-                            placeholder="+923286257707"
+                            placeholder="03XXXXXXXXX"
                             required
-                            className="contact-input"
+                            className={`contact-input ${whatsappError ? 'is-invalid' : ''}`}
                             autoComplete="off"
                             autoCorrect="off"
                             spellCheck="false"
+                            value={whatsappNumber}
+                            onChange={handleWhatsAppChange}
+                            maxLength={11}
+                            pattern="03[0-9]{9}"
                           />
+                          {whatsappError && (
+                            <div className="invalid-feedback" style={{color: '#ff6b6b', fontSize: '0.875rem', marginTop: '0.25rem'}}>
+                              {whatsappError}
+                            </div>
+                          )}
                         </Form.Group>
                       </Col>
                       <Col md={6}>
@@ -239,6 +283,8 @@ function Contact() {
                             required 
                             className="contact-input"
                             autoComplete="off"
+                            value={selectedService}
+                            onChange={(e) => setSelectedService(e.target.value)}
                           >
                             <option value="">Select a service</option>
                             {services.map((service, index) => (
@@ -248,6 +294,29 @@ function Contact() {
                         </Form.Group>
                       </Col>
                     </Row>
+                    
+                    {selectedService === 'Courses & Training' && (
+                      <Row>
+                        <Col md={12}>
+                          <Form.Group className="mb-3">
+                            <Form.Label style={{color: '#00ffff', fontWeight: '600'}}>
+                              <i className="bi bi-mortarboard me-2"></i>Select Course
+                            </Form.Label>
+                            <Form.Select 
+                              name="course_name" 
+                              required 
+                              className="contact-input"
+                              autoComplete="off"
+                            >
+                              <option value="">Select a course</option>
+                              {courses.map((course, index) => (
+                                <option key={index} value={course}>{course}</option>
+                              ))}
+                            </Form.Select>
+                          </Form.Group>
+                        </Col>
+                      </Row>
+                    )}
                     
                     <Form.Group className="mb-4">
                       <Form.Label style={{color: '#00ffff', fontWeight: '600'}}>

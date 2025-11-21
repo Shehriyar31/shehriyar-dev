@@ -11,6 +11,8 @@ import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
 import Preloader from './components/Preloader';
 import WebsiteProtection from './components/WebsiteProtection';
+import ScrollToTop from './components/ScrollToTop';
+import ScrollUpButton from './components/ScrollUpButton';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -37,6 +39,7 @@ function App() {
         ) : (
           <Router key="app">
             <div className="app">
+              <ScrollToTop />
               <WebsiteProtection />
               <ParticleBackground />
               <Header />
@@ -49,6 +52,7 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
               </Routes>
               <Footer />
+              <ScrollUpButton />
             </div>
             <ToastContainer
               position="top-center"
