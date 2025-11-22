@@ -1,6 +1,7 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import TooltipWrapper from './TooltipWrapper';
 import logo from '../assets/logo.jpg';
 import pkFlag from '../assets/pk.jpg';
 
@@ -45,10 +46,18 @@ function Footer() {
             >
               <h5 className="footer-title"><i className="bi bi-rocket me-2"></i>Services</h5>
               <div>
-                <a href="#" className="footer-link">Web Development</a>
-                <a href="#" className="footer-link">UI/UX Design</a>
-                <a href="#" className="footer-link">E-commerce</a>
-                <a href="#" className="footer-link">Mobile Apps</a>
+                <TooltipWrapper text="Full Stack Web Development">
+                  <a href="#" className="footer-link">Web Development</a>
+                </TooltipWrapper>
+                <TooltipWrapper text="User Interface & Experience Design">
+                  <a href="#" className="footer-link">UI/UX Design</a>
+                </TooltipWrapper>
+                <TooltipWrapper text="Online Store Development">
+                  <a href="#" className="footer-link">E-commerce</a>
+                </TooltipWrapper>
+                <TooltipWrapper text="Mobile Application Development">
+                  <a href="#" className="footer-link">Mobile Apps</a>
+                </TooltipWrapper>
               </div>
             </motion.div>
           </Col>
@@ -62,11 +71,21 @@ function Footer() {
             >
               <h5 className="footer-title"><i className="bi bi-building me-2"></i>Company</h5>
               <div>
-                <Link to="/" className="footer-link">Home</Link>
-                <Link to="/about" className="footer-link">About</Link>
-                <Link to="/services" className="footer-link">Services</Link>
-                <Link to="/portfolio" className="footer-link">Portfolio</Link>
-                <Link to="/contact" className="footer-link">Contact</Link>
+                <TooltipWrapper text="Go to Homepage">
+                  <Link to="/" className="footer-link">Home</Link>
+                </TooltipWrapper>
+                <TooltipWrapper text="Learn About Me">
+                  <Link to="/about" className="footer-link">About</Link>
+                </TooltipWrapper>
+                <TooltipWrapper text="View My Services">
+                  <Link to="/services" className="footer-link">Services</Link>
+                </TooltipWrapper>
+                <TooltipWrapper text="Check My Work">
+                  <Link to="/portfolio" className="footer-link">Portfolio</Link>
+                </TooltipWrapper>
+                <TooltipWrapper text="Get In Touch">
+                  <Link to="/contact" className="footer-link">Contact</Link>
+                </TooltipWrapper>
               </div>
             </motion.div>
           </Col>
@@ -80,15 +99,21 @@ function Footer() {
             >
               <h5 className="footer-title"><i className="bi bi-telephone me-2"></i>Contact Info</h5>
               <div>
-                <a href="https://wa.me/923286257707" className="footer-link" target="_blank" rel="noopener noreferrer">
-                  <i className="bi bi-whatsapp me-2"></i>+92 328 625 7707
-                </a>
-                <a href="#" className="footer-link">
-                  <i className="bi bi-geo-alt me-2"></i>Gujranwala, Pakistan
-                </a>
-                <a href="#" className="footer-link">
-                  <i className="bi bi-clock me-2"></i>Available 24/7
-                </a>
+                <TooltipWrapper text="Chat on WhatsApp">
+                  <a href="https://wa.me/923286257707" className="footer-link" target="_blank" rel="noopener noreferrer">
+                    <i className="bi bi-whatsapp me-2"></i>+92 328 625 7707
+                  </a>
+                </TooltipWrapper>
+                <TooltipWrapper text="My Location">
+                  <a href="#" className="footer-link">
+                    <i className="bi bi-geo-alt me-2"></i>Gujranwala, Pakistan
+                  </a>
+                </TooltipWrapper>
+                <TooltipWrapper text="Always Ready to Help">
+                  <a href="#" className="footer-link">
+                    <i className="bi bi-clock me-2"></i>Available 24/7
+                  </a>
+                </TooltipWrapper>
               </div>
             </motion.div>
           </Col>

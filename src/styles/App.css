@@ -18,12 +18,22 @@
   user-drag: none;
 }
 
+/* Interactive Elements Cursor */
+a, button, .btn, [role="button"], .nav-link, .navbar-brand, .service-card, .portfolio-card, .tech-card, .stats-card, .contact-info-card, .footer-link {
+  cursor: pointer !important;
+}
+
+input, textarea, select {
+  cursor: text !important;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
   color: #fff;
   overflow-x: hidden;
   padding-top: 80px;
+  cursor: default;
   /* Additional Protection */
   -webkit-user-select: none;
   -moz-user-select: none;

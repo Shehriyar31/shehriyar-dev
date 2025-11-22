@@ -2,6 +2,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import TooltipWrapper from './TooltipWrapper';
 import logo from '../assets/logo.jpg';
 
 function Header() {
@@ -20,10 +21,12 @@ function Header() {
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <Navbar.Brand as={Link} to="/">
-              <img src={logo} alt="ShehriyarDev" className="logo-img" />
-              ShehriyarDev
-            </Navbar.Brand>
+            <TooltipWrapper text="Go to Homepage" placement="bottom">
+              <Navbar.Brand as={Link} to="/">
+                <img src={logo} alt="ShehriyarDev" className="logo-img" />
+                ShehriyarDev
+              </Navbar.Brand>
+            </TooltipWrapper>
           </motion.div>
           
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -35,13 +38,15 @@ function Header() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 whileHover={{ scale: 1.1, y: -2 }}
               >
-                <Nav.Link 
-                  as={Link}
-                  to="/"
-                  className={location.pathname === '/' ? 'active' : ''}
-                >
-                  Home
-                </Nav.Link>
+                <TooltipWrapper text="Navigate to Home Page" placement="bottom">
+                  <Nav.Link 
+                    as={Link}
+                    to="/"
+                    className={location.pathname === '/' ? 'active' : ''}
+                  >
+                    Home
+                  </Nav.Link>
+                </TooltipWrapper>
               </motion.div>
               
               <motion.div
@@ -50,13 +55,15 @@ function Header() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 whileHover={{ scale: 1.1, y: -2 }}
               >
-                <Nav.Link 
-                  as={Link}
-                  to="/about"
-                  className={location.pathname === '/about' ? 'active' : ''}
-                >
-                  About
-                </Nav.Link>
+                <TooltipWrapper text="Learn About Me" placement="bottom">
+                  <Nav.Link 
+                    as={Link}
+                    to="/about"
+                    className={location.pathname === '/about' ? 'active' : ''}
+                  >
+                    About
+                  </Nav.Link>
+                </TooltipWrapper>
               </motion.div>
               
               <motion.div
@@ -65,13 +72,15 @@ function Header() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 whileHover={{ scale: 1.1, y: -2 }}
               >
-                <Nav.Link 
-                  as={Link}
-                  to="/services"
-                  className={location.pathname === '/services' ? 'active' : ''}
-                >
-                  Services
-                </Nav.Link>
+                <TooltipWrapper text="View My Services" placement="bottom">
+                  <Nav.Link 
+                    as={Link}
+                    to="/services"
+                    className={location.pathname === '/services' ? 'active' : ''}
+                  >
+                    Services
+                  </Nav.Link>
+                </TooltipWrapper>
               </motion.div>
               
               <motion.div
@@ -80,13 +89,15 @@ function Header() {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 whileHover={{ scale: 1.1, y: -2 }}
               >
-                <Nav.Link 
-                  as={Link}
-                  to="/portfolio"
-                  className={location.pathname === '/portfolio' ? 'active' : ''}
-                >
-                  Portfolio
-                </Nav.Link>
+                <TooltipWrapper text="Check My Work" placement="bottom">
+                  <Nav.Link 
+                    as={Link}
+                    to="/portfolio"
+                    className={location.pathname === '/portfolio' ? 'active' : ''}
+                  >
+                    Portfolio
+                  </Nav.Link>
+                </TooltipWrapper>
               </motion.div>
               
               <motion.div
@@ -95,13 +106,15 @@ function Header() {
                 transition={{ duration: 0.6, delay: 0.5 }}
                 whileHover={{ scale: 1.1, y: -2 }}
               >
-                <Nav.Link 
-                  as={Link}
-                  to="/courses"
-                  className={location.pathname === '/courses' ? 'active' : ''}
-                >
-                  Courses
-                </Nav.Link>
+                <TooltipWrapper text="Explore Courses" placement="bottom">
+                  <Nav.Link 
+                    as={Link}
+                    to="/courses"
+                    className={location.pathname === '/courses' ? 'active' : ''}
+                  >
+                    Courses
+                  </Nav.Link>
+                </TooltipWrapper>
               </motion.div>
               
               <motion.div
@@ -110,13 +123,15 @@ function Header() {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 whileHover={{ scale: 1.1, y: -2 }}
               >
-                <Nav.Link 
-                  as={Link}
-                  to="/contact"
-                  className={location.pathname === '/contact' ? 'active' : ''}
-                >
-                  Contact
-                </Nav.Link>
+                <TooltipWrapper text="Get In Touch" placement="bottom">
+                  <Nav.Link 
+                    as={Link}
+                    to="/contact"
+                    className={location.pathname === '/contact' ? 'active' : ''}
+                  >
+                    Contact
+                  </Nav.Link>
+                </TooltipWrapper>
               </motion.div>
             </Nav>
           </Navbar.Collapse>
